@@ -10,7 +10,11 @@
 .rightContainer{
     width: 50vw;
     height: 100vh;
-    background-color: red;
+    display: flex;
+    flex-Direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: black;
 }
 @media screen and (max-width: 768px) {
 

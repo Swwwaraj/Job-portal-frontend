@@ -1,4 +1,5 @@
 import styles from '../styles/login.module.css'
+import image from '../assets/image.png'
 export default function Login() {
     return <div className={styles.container} style = {{
         display: 'flex',
@@ -9,6 +10,7 @@ export default function Login() {
     }}>
         <div className={styles.leftContainer}>
             <div >
+                
                 <h1>Already have an account?</h1>
                 <h3 style={{
                     color: "#525252"
@@ -50,7 +52,29 @@ export default function Login() {
                 </form>
             </div>
         </div>
-        <div className={styles.rightContainer}></div>
+        <div className={styles.rightContainer}
+            style= {{
+                flex: 1,
+                display: 'flex',
+                justifyContent:'center',
+                alignItems:'center',
+                position:'relative'
+            }}>
+                <img
+                src={image}
+                alt='Login Image'
+                style={{width:'100%', height:'100%'}}/>
+                <h1
+                style={{
+                    position:'absolute',
+                    color:'white',
+                    top:'50px',
+                
+
+        
+                }}> Your Personal Job Finder </h1>
+                
+        </div>
     </div>
 }
 
