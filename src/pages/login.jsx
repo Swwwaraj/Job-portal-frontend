@@ -22,11 +22,15 @@ export default function Login() {
                 }}>
                     <input style={{
                         padding: "10px",
+                        width: "40vw",
+                        maxWidth:"400px",
                         borderRadius: "7px",
                         border: "1px solid #c2c2c2c2"
                     }} type="text" placeholder="Email"/>
                     <input style={{
                         padding: "10px",
+                        width: "40vw",
+                        maxWidth:"400px",
                         borderRadius: "7px",
                         border: "1px solid #c2c2c2c2"
                     }}type="password" placeholder="Password"/>
