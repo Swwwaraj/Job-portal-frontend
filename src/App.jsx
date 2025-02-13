@@ -8,13 +8,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Toaster>
+    
       <Routes>
           <Route path="/" element={<Login />} />
           <Route path = "/register" element = {<Register />} />
           <Route path = "/login" element = {<Login />} />    
       </Routes>
-    </Toaster>
+      <Toaster/>
     </BrowserRouter>
   )
 }
