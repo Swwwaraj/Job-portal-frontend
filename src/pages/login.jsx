@@ -1,6 +1,33 @@
 import styles from '../styles/login.module.css'
 import image from '../assets/image.png'
-export default function Login() {
+import Login from './login';
+import { useState } from 'react'
+import  { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
+export default function login() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [useData, setUseData] = useState({
+        email: "",
+        password: "",
+    })
+    const loginHandler =async (e) => {
+    try {        
+            e.preventDefault()
+            setIsLoading(true)
+            const response =await login({ data: useData})
+            if (response.ok) {
+                toast.success("Account login successfully")
+                Navigate("/register")
+            } else {
+                toast.error("Something went wrong")
+            }
+            setIsLoading(false)
+        } catch (error) {
+            console.log(error)
+            toast.error("Something went wrong")
+            setIsLoading(false)
+        }
+    }
     return <div className={styles.container} style = {{
         display: 'flex',
         //justifyContent: 'center',
@@ -26,14 +53,14 @@ export default function Login() {
                         maxWidth:"400px",
                         borderRadius: "7px",
                         border: "1px solid #c2c2c2c2"
-                    }} type="text" placeholder="Email"/>
+                    }} type="text" placeholder="Email" value={useData.email} onChange={(e) => setUseData({ ...useData, email: e.target.value})}/>
                     <input style={{
                         padding: "10px",
                         width: "40vw",
                         maxWidth:"400px",
                         borderRadius: "7px",
                         border: "1px solid #c2c2c2c2"
-                    }}type="password" placeholder="Password"/>
+                    }}type="password" placeholder="Password" value={useData.password} onChange={(e) => setUseData({ ...useData, password: e.target.value})}/>
                     <button style={{
                         width: "40%",
                         background: "#ed5353",
@@ -44,7 +71,7 @@ export default function Login() {
                         cursor:"pointer",
                         fontWeight: "bold",
                         fontSize: "1.1rem",
-                    }} type="submit" placeholder="Submit">Sign in</button>
+                    }} type="submit" onClick={loginHandler}>{isLoading ? "logging account..." : "Login"}</button>
                     <h3 style={{
                     color: "#525252"
                     }}>Don't have an account? <span style={{

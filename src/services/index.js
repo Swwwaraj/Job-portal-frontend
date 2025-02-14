@@ -12,3 +12,15 @@ export async function register({ data }) {
     return response;
     
 }
+
+export async function login({ data }) {
+    const response = await fetch(`${API_URL}/auth/login`,{
+        method: 'GET',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    return response;
+    
+}
